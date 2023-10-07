@@ -1,14 +1,14 @@
 const PORT = 8000
 const express = require('express')
 const cors = require('cors')
-const fetch = require('node-fetch')
+// const fetch = require('node-fetch').default;
 require('dotenv').config()
 const app = express()
 app.use(express.json())
 app.use(cors())
 
 const API_KEY = process.env.API_KEY
-deepai.setApiKey(API_KEY);
+// deepai.setApiKey(API_KEY);
 
 // method to send a request to the server and return response to user 
 app.post('/process-image', async (req, res) => {
@@ -31,9 +31,7 @@ app.post('/process-image', async (req, res) => {
     });
 
     const data = await deepAIResponse.json();
-    res.json(data); 
+    res.send(data); 
 });
 
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`)
-}); 
+app.listen(PORT, () => console.log(`Server listening on port ${PORT}`)); 

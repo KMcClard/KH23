@@ -9,21 +9,32 @@ function App() {
 
   // Rendering previews for selected images
   useEffect(() => {
-    if (!files) return;
-    let tmp = [];
+    // Declare an async function inside the useEffect hook
+    const processImages = async () => {
+      // Check if files exist
+      if (!files) return;
+      let tmp = [];
+      for (let i = 0; i < files.length; i++) {
+        tmp.push(URL.createObjectURL(files[i]));
+      }
 
-    for (let i = 0; i < files.length; i++) {
-      tmp.push(URL.createObjectURL(files[i]));
+      const objectUrls = tmp;
+      // Use await to fetch the response and parse the data
+      const response = await fetch('https://localhost:8000/process-image', objectUrls)
+      const data = await response.json()
+
+      setPreviews(objectUrls);
+
+      // free memory
+      for (let i = 0; i < objectUrls.length; i++) {
+        return () => {
+          URL.revokeObjectURL(objectUrls[i]);
+        };
+      }
     }
 
-    setPreviews(tmp);
-
-    // Free memory by revoking object URLs when the component unmounts
-    return () => {
-      for (let i = 0; i < tmp.length; i++) {
-        URL.revokeObjectURL(tmp[i]);
-      }
-    };
+    // Call the async function immediately
+    processImages();
   }, [files]);
 
   // Handle image selection

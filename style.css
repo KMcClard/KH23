@@ -4,5 +4,27 @@ p{
     
 }
 body{
-    background-color: brown;
+    background-color: #651373;
+}
+.hero{
+    width: 200px;
+    height: 200px;
+    padding: 40px;
+    background: #CE64E0;
+    text-align: right;
+    border-radius: 15px;
+    color: #333;
+}
+.person{
+    width: 200px;
+    height: 200px;
+    padding: 40px;
+    background: #CE64E0;
+    text-align: left;
+    border-radius: 15px;
+    color: #333;
+}
+.upload{
+    color: white;
+    text-align: center;
 }

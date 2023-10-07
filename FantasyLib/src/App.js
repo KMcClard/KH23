@@ -21,6 +21,16 @@ useEffect(() => {
       const objectUrls = tmpurl;
       // Use await to fetch the response and parse the data
       setPreviews(objectUrls);
+      
+      
+      
+      
+      
+      
+      //FIGURE OUT HOW TO GET THE KEY IN 
+      //FIGURE OUT HOW TO SEND THE IMAGE AND HTE PROMPT
+
+
 
       if(objectUrl.current.value==="") return 0;
       const deepAIResponse = await fetch('https://api.deepai.org/api/image-editor', {
@@ -32,9 +42,11 @@ useEffect(() => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          //SENDING IMAGE I THINK
             prompt:`${objectUrl.current.value}`
             // image: imageUrl,
             // style: 'watercolor'
+            //HEREHEHREHEREHRHERHEHRHERHEHRHERHRE
         }),
         
     });

@@ -7,26 +7,35 @@ function App() {
   const [previews, setPreviews] = useState();
 
   // rendering previews
-  useEffect(() => {
-    if (!files) return;
-    let tmp = [];
-    for (let i = 0; i < files.length; i++) {
-      tmp.push(URL.createObjectURL(files[i]));
-    }
-    
-    const objectUrls = tmp;
-    const response = fetch('https://localhost:8000/process-image', objectUrls)
-    const data = response.json()
 
-    setPreviews(objectUrls);
+useEffect(() => {
+    // Declare an async function inside the useEffect hook
+    const processImages = async () => {
+      // Check if files exist
+      if (!files) return;
+      let tmp = [];
+      for (let i = 0; i < files.length; i++) {
+        tmp.push(URL.createObjectURL(files[i]));
+      }
+      
+      const objectUrls = tmp;
+      // Use await to fetch the response and parse the data
+      const response = await fetch('http://localhost:8000/process-image', objectUrls)
+      const data = await response.json()
 
-    // free memory
-    for (let i = 0; i < objectUrls.length; i++) {
-      return () => {
-        URL.revokeObjectURL(objectUrls[i]);
-      };
+      setPreviews(objectUrls);
+
+      // free memory
+      for (let i = 0; i < objectUrls.length; i++) {
+        return () => {
+          URL.revokeObjectURL(objectUrls[i]);
+        };
+      }
     }
+    // Call the async function immediately
+    processImages();
   }, [files]);
+
 
   return (
     <main className="container">

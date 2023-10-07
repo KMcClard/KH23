@@ -1,27 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.css';
 
 function App() {
-  const [image, setImage] = useState(null);
-  const [selectedOption, setSelectedOption] = useState(''); // State to store the selected option
+  const [files, setFiles] = useState(null);
+  const [previews, setPreviews] = useState([]);
 
   function handleImage(e) {
-    setImage(e.target.files[0]);
+    setFiles(e.target.files);
   }
 
-  function handleOptionChange(e) {
-    setSelectedOption(e.target.value);
-  }
+  useEffect(() => {
+    if (!files) return;
+    const objectUrls = [];
 
-  function handleSubmit() {
-    if (image) {
-      // You can perform actions with the selected image and option here
-      console.log('Selected image:', image);
-      console.log('Selected option:', selectedOption);
-    } else {
-      console.log('No image selected');
+    for (let i = 0; i < files.length; i++) {
+      objectUrls.push(URL.createObjectURL(files[i]));
     }
-  }
+
+    setPreviews(objectUrls);
+
+    // free memory
+    return () => {
+      for (let i = 0; i < objectUrls.length; i++) {
+        URL.revokeObjectURL(objectUrls[i]);
+      }
+    };
+  }, [files]);
 
   return (
     <div className="App">
@@ -35,6 +39,7 @@ function App() {
             <input type="file" name="file" onChange={handleImage} />
           </label>
         </div>
+        <button className="submit-btn" onClick={handleSubmit}></button>
         <select className="dropdown" onChange={handleOptionChange}>
           <option value="">Select an option</option>
           <option value="Barbarian">Barbarian</option>
@@ -44,8 +49,24 @@ function App() {
           <option value="Rogue">Rogue</option>
           <option value="Warlock">Warlock</option>
         </select>
-        <button className="submit-btn" onClick={handleSubmit}></button>
       </div>
+      <main className="container">
+        <br />
+        <h3>Fantasy Lens</h3>
+        <input
+          type="file"
+          accept="image/jpg, image/jpeg, image/png"
+          multiple
+          onChange={(e) => {
+            if (e.target.files && e.target.files.length > 0) {
+              setFiles(e.target.files);
+            }
+          }}
+        />
+        {previews.map((pic, index) => (
+          <img key={index} src={pic} alt={`Preview ${index}`} />
+        ))}
+      </main>
     </div>
   );
 }

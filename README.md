@@ -12,6 +12,10 @@ How to run:
     1) Open command prompt
         i) If it is your first time running must use: 
             "npm install" 
+            "npm install dotenv"
+            "npm install cors"
+            "npm install express"
+            "npm install --save deepai"
     2) To start front end: 
         i) Use following command in command prompt 
             "npm run start:frontend"

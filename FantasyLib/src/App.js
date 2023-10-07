@@ -8,6 +8,10 @@ function App() {
     setImage(e.target.files[0]);
   }
 
+
+  // May need this to send request to backend: 
+  // const response = await fetch ('http://localhost:8000/completions', options)
+
   function handleSubmit() {
     if (image) {
       // You can perform actions with the selected image here

@@ -7,11 +7,13 @@ User uploads image --> user selects class (wizard, barbarian, etc) --> image and
 
 
 How to run: 
-    1) open command prompt
+    1) Open command prompt
+        i) if it is your first time running must use: 
+            "npm install" 
     2) To start front end: 
         i) use following command in command prompt 
             "npm run start:frontend"
-    3) to start Back end: 
+    3) To start Back end: 
         i) use following command in command prompt 
             "npm run start:backend" 
     

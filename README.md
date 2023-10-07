@@ -17,6 +17,7 @@ How to run:
             "npm install cors"
             "npm install express"
             "npm install --save deepai"
+            "npm install node-fetch" 
     2) To start front end: 
         i) Use following command in command prompt 
             "npm run start:frontend"

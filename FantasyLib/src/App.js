@@ -6,17 +6,7 @@ function App() {
   const [files, setFiles] = useState();
   const [previews, setPreviews] = useState();
 
-<<<<<<< HEAD
   // rendering previews
-=======
-  // this is the request to the backend
-  // fetch('/abc', {
-  //   method: 'POST',
-  //   // ... the rest of your fetch options ...
-  // });
-
-  // Rendering previews for selected images
->>>>>>> e41972025ba54a1e9e78670be064f11ae9c73011
   useEffect(() => {
     if (!files) return;
     let tmp = [];

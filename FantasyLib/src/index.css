@@ -11,7 +11,7 @@ input[type="file"] {
 }
 
 label {
-  background-color: #3498db;
+  background-color: #b51cb5;
   color: white;
   padding: 10px 15px;
   border-radius: 5px;
@@ -19,7 +19,7 @@ label {
 }
 
 button {
-  background-color: #3498db;
+  background-color: #b51cb5;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -29,5 +29,5 @@ button {
 }
 
 button:hover {
-  background-color: #2980b9;
+  background-color: #b51cb5;
 }

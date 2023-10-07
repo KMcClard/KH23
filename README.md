@@ -8,6 +8,7 @@ Flow:
 
 How to run: 
     1) Open command prompt
+    
         i) If it is your first time running must use: 
             "npm install" 
     2) To start front end: 

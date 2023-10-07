@@ -9,32 +9,18 @@ function App() {
 
   // Rendering previews for selected images
   useEffect(() => {
-    // Declare an async function inside the useEffect hook
-    const processImages = async () => {
-      // Check if files exist
-      if (!files) return;
-      let tmp = [];
-      for (let i = 0; i < files.length; i++) {
-        tmp.push(URL.createObjectURL(files[i]));
-      }
-
-      const objectUrls = tmp;
-      // Use await to fetch the response and parse the data
-      const response = await fetch('https://localhost:8000/process-image', objectUrls)
-      const data = await response.json()
-
-      setPreviews(objectUrls);
-
-      // free memory
-      for (let i = 0; i < objectUrls.length; i++) {
-        return () => {
-          URL.revokeObjectURL(objectUrls[i]);
-        };
-      }
+    if (!files) return;
+    let tmp = [];
+    for (let i = 0; i < files.length; i++) {
+      tmp.push(URL.createObjectURL(files[i]));
     }
-
-    // Call the async function immediately
-    processImages();
+    setPreviews(temp);
+    return () => {
+    // free memory
+    for (let i = 0; i < tmp.length; i++) {
+        URL.revokeObjectURL(tmp[i]);
+      }
+    };
   }, [files]);
 
   // Handle image selection
@@ -47,15 +33,21 @@ function App() {
     setSelectedOption(e.target.value);
   }
 
-  // Handle form submission
-  function handleSubmit() {
-    if (image) {
-      // You can perform actions with the selected image and option here
-      console.log('Selected image:', image);
-      console.log('Selected option:', selectedOption);
-    } else {
-      console.log('No image selected');
-    }
+  function ImageUploadComponent(e) {
+    const [files, setFiles] = useState(null);
+    // Handle form submission
+    const handleSubmit = async () => {
+      const formData = new FormData();
+      formData.append('image', files);
+
+      const response = await fetch('http://localhost:8000/process-image', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+      console.log(data);
+    };
   }
 
   return (
@@ -82,7 +74,7 @@ function App() {
           multiple
           onChange={(e) => {
             if (e.target.files && e.target.files.length > 0) {
-              setFiles(e.target.files);
+              setFiles(e.target.files[0]);
             }
           }}
         />

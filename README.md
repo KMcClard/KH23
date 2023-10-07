@@ -3,12 +3,13 @@
 Fantasy Lens
 
 Flow: 
+
     User uploads image --> user selects class (wizard, barbarian, etc) --> image and prompt is input into image generator api --> image output
 
 
 How to run: 
+
     1) Open command prompt
-    
         i) If it is your first time running must use: 
             "npm install" 
     2) To start front end: 
@@ -20,6 +21,7 @@ How to run:
     
 
 Structure of Code: 
+
     1) /FantasyLib contains the react project. 
     2) Ignore /node_modules 
     3) Ignore /public

@@ -1,3 +1,9 @@
+/* Updated CSS styles */
+body {
+  background-color: purple; /* Set the background color of the entire site to purple */
+  margin: 0; /* Remove default margin to have full-width background */
+}
+
 .person {
   display: flex;
   flex-direction: column;
@@ -6,28 +12,58 @@
   height: 100vh;
 }
 
-input[type="file"] {
-  display: none;
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid white; /* Add a white line under the header */
+  padding-bottom: 10px; /* Add some space between the header and the line */
 }
 
-label {
-  background-color: #b51cb5;
+.header h1 {
+  font-size: 36px;
+  color: white; /* Set the text color to white */
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-btn-wrapper input[type="file"] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.upload-btn-wrapper .btn {
+  background-color: #3498db;
   color: white;
-  padding: 10px 15px;
+  padding: 20px;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-button {
-  background-color: #b51cb5;
+.submit-btn {
+  background-color: #3498db;
   color: white;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
   margin-top: 10px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-button:hover {
-  background-color: #b51cb5;
+.submit-btn::after {
+  content: '\2192';
+  margin-left: 5px;
+  font-size: 20px;
 }

@@ -22,36 +22,36 @@ useEffect(() => {
       // Use await to fetch the response and parse the data
       setPreviews(objectUrls);
 
-      // free memory
-      for (let i = 0; i < objectUrls.length; i++) {
-        return () => {
-          URL.revokeObjectURL(objectUrls[i]);
-        };
-      }
+      if(objectUrl.current.value==="") return 0;
+      const deepAIResponse = await fetch('https://api.deepai.org/api/image-editor', {
+        // we use post to because we are sending data to be processed
+        method: 'POST',
+        // meta data for the request
+        headers: {
+            'api-key': API_KEY,
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            prompt:`${objectUrl.current.value}`
+            // image: imageUrl,
+            // style: 'watercolor'
+        }),
+        
+    });
+
+      
+      
     }
     // Call the async function immediately
     processImages();
   }, [files]);
 
-  function sendImage(tmpurl) {
-    // Send a POST request to /image with the url as the body
-    fetch("/image", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ tmpurl }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // Handle the response data
-        console.log(data);
-      })
-      .catch((error) => {
-        // Handle the error
-        console.error(error);
-      });
-  }
+  
+
+
+
+
+  
 
 
   return (
@@ -71,6 +71,7 @@ useEffect(() => {
       />
       {previews &&
         previews.map((pic) => {
+          sendImage(tmpurl);
           return <img src={pic} />;
         })}
     </main>

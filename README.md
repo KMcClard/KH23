@@ -10,7 +10,8 @@ Flow:
 How to run: 
 
     1) Open command prompt
-        i) If it is your first time running must use: 
+        i) go into /FantasyLib
+        ii) If it is your first time running must use: 
             "npm install" 
             "npm install dotenv"
             "npm install cors"

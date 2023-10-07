@@ -1,4 +1,4 @@
-import React, { component } from 'react';
+ import React, { component } from 'react';
 import './index.css';
 import { useEffect, useState } from "react";
 
@@ -13,16 +13,13 @@ useEffect(() => {
     const processImages = async () => {
       // Check if files exist
       if (!files) return;
-      let tmp = [];
+      let tmpurl = [];
       for (let i = 0; i < files.length; i++) {
-        tmp.push(URL.createObjectURL(files[i]));
+        tmpurl.push(URL.createObjectURL(files[i]));
       }
       
-      const objectUrls = tmp;
+      const objectUrls = tmpurl;
       // Use await to fetch the response and parse the data
-      const response = await fetch('http://localhost:8000/process-image', objectUrls)
-      const data = await response.json()
-
       setPreviews(objectUrls);
 
       // free memory
@@ -35,6 +32,26 @@ useEffect(() => {
     // Call the async function immediately
     processImages();
   }, [files]);
+
+  function sendImage(tmpurl) {
+    // Send a POST request to /image with the url as the body
+    fetch("/image", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ tmpurl }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Handle the response data
+        console.log(data);
+      })
+      .catch((error) => {
+        // Handle the error
+        console.error(error);
+      });
+  }
 
 
   return (
@@ -61,49 +78,3 @@ useEffect(() => {
 }
 
 export default App;
-// // import { axios } from 'axios'
-
-
-// function App() {
-//   const[image, setImage] = useState('')
-
-//   function handleImage(e){
-//     setImage(e.target.files[0])
-//     return e.target.files[0];
-//   }
-//   const imageUrl = URL.createObjectURL(image)
-
-//   // Revoke the URL when the component unmounts
-//   useEffect(() => {
-//     return () => {
-//       URL.revokeObjectURL(imageUrl)
-//     }
-//   }, [imageUrl])
-
-//   // function handleApi(){
-//   //   const formData = new FormData()
-//   //   formData.append('image', image)
-//   //   axios.post('url', formData).then((res) => {
-//   //     console.log(res)
-//   //   })
-//   // }
-
-//   return (
-
-//         <div className="person">
-
-//           <input 
-//             type="file" 
-//             name='file' 
-//             accept="image/jpg, image/jpeg, image/png"
-//             onChange={handleImage}/>
-//           <img src={imageUrl} alt="User Image" />
-          
-//           {/* <button onClick={handleApi}>submit</button> */}
-//         </div>
-        
-    
-//   )
-// }
-
-// export default App;

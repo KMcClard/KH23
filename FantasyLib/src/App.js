@@ -1,31 +1,51 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.css';
 
 function App() {
-  const [files, setFiles] = useState(null);
-  const [previews, setPreviews] = useState([]);
+  const [files, setFiles] = useState();
+  const [previews, setPreviews] = useState();
+  const [image, setImage] = useState();
+  const [selectedOption, setSelectedOption] = useState('');
 
-  function handleImage(e) {
-    setFiles(e.target.files);
-  }
-
+  // Rendering previews for selected images
   useEffect(() => {
     if (!files) return;
-    const objectUrls = [];
+    let tmp = [];
 
     for (let i = 0; i < files.length; i++) {
-      objectUrls.push(URL.createObjectURL(files[i]));
+      tmp.push(URL.createObjectURL(files[i]));
     }
 
-    setPreviews(objectUrls);
+    setPreviews(tmp);
 
-    // free memory
+    // Free memory by revoking object URLs when the component unmounts
     return () => {
-      for (let i = 0; i < objectUrls.length; i++) {
-        URL.revokeObjectURL(objectUrls[i]);
+      for (let i = 0; i < tmp.length; i++) {
+        URL.revokeObjectURL(tmp[i]);
       }
     };
   }, [files]);
+
+  // Handle image selection
+  function handleImage(e) {
+    setImage(e.target.files[0]);
+  }
+
+  // Handle option change
+  function handleOptionChange(e) {
+    setSelectedOption(e.target.value);
+  }
+
+  // Handle form submission
+  function handleSubmit() {
+    if (image) {
+      // You can perform actions with the selected image and option here
+      console.log('Selected image:', image);
+      console.log('Selected option:', selectedOption);
+    } else {
+      console.log('No image selected');
+    }
+  }
 
   return (
     <div className="App">
@@ -39,20 +59,12 @@ function App() {
             <input type="file" name="file" onChange={handleImage} />
           </label>
         </div>
-        <button className="submit-btn" onClick={handleSubmit}></button>
         <select className="dropdown" onChange={handleOptionChange}>
           <option value="">Select an option</option>
           <option value="Barbarian">Barbarian</option>
           <option value="Ranger">Ranger</option>
-          <option value="Druid">Druid</option>
-          <option value="Cleric">Cleric</option>
-          <option value="Rogue">Rogue</option>
-          <option value="Warlock">Warlock</option>
+          {/* Other options */}
         </select>
-      </div>
-      <main className="container">
-        <br />
-        <h3>Fantasy Lens</h3>
         <input
           type="file"
           accept="image/jpg, image/jpeg, image/png"
@@ -63,10 +75,14 @@ function App() {
             }
           }}
         />
-        {previews.map((pic, index) => (
-          <img key={index} src={pic} alt={`Preview ${index}`} />
-        ))}
-      </main>
+        {previews &&
+          previews.map((pic, index) => {
+            return <img key={index} src={pic} alt={`Preview ${index}`} />;
+          })}
+        <button className="submit-btn" onClick={handleSubmit}>
+          Submit
+        </button>
+      </div>
     </div>
   );
 }

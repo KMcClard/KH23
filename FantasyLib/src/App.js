@@ -39,11 +39,20 @@ function App() {
       <input type="file" accept="image/*" onChange={handleImageChange} />
       <button onClick={uploadToDeepAI}>Upload to DeepAI</button>
 
-      {/* Display the API response to the user */}
-      {apiResponse && (
+      {/* Display the uploaded image to the user */}
+      {selectedImage && (
         <div>
-          <h3>API Response:</h3>
-          <pre>{JSON.stringify(apiResponse, null, 2)}</pre>
+          <h3>Uploaded Image:</h3>
+          <img src={selectedImage} alt="Uploaded by user" style={{ maxWidth: '100%', height: 'auto' }} />
+        </div>
+      )}
+      
+      {/* Display the API response to the user */}
+      {apiResponse && apiResponse.output_url &&(
+        <div>
+          <h3>Your Image:</h3>
+          <img src = {apiResponse.output_url} alt = "Edited by DeepAI" 
+            style = {{ maxWidth: '100%', height: 'auto'}} />
         </div>
       )}
     </div>

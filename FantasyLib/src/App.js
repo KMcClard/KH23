@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './index.css';
 
+
+
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [uploadedImage, setUploadedImage] = useState(null);
@@ -193,6 +195,16 @@ function App() {
 
   return (
     <div className="App">
+
+
+      <header>
+
+        
+
+      <h1 className="header-text">FantasyLens</h1>
+
+      </header>
+
       <input type="file" accept="image/*" onChange={handleImageChange} />
       <button onClick={uploadBarbarian}>Barbarian</button>
       <button onClick={uploadRanger}>Ranger</button>

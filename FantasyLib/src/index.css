@@ -1,4 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+
+
 body {
+  margin: 0; /* Remove default body margin */
+  padding: 0; /* Remove default body padding */
+  display: flex; /* Use flexbox to center header */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  min-height: 100vh; /* Ensure the body covers the entire viewport height */
   background-color: #f4e5d9; /* Light beige background color */
   background-image: url('parchment-texture.jpg'); /* Use a parchment texture image */
   background-repeat: repeat; /* Repeat the texture */
@@ -16,15 +26,44 @@ body {
 }
 
 .header {
-  text-align: center;
-  margin-bottom: 20px;
-  border-bottom: 2px solid white; /* Add a white line under the header */
-  padding-bottom: 10px; /* Add some space between the header and the line */
+  text-align: center; /* Center the text horizontally */
+  padding: 20px; /* Add some padding for spacing */
+  position: fixed; /* Position the header as a fixed element */
+  top: 0; /* Stick it to the top of the page */
+  left: 0; /* Stick it to the left of the page */
+  right: 0; /* Stick it to the right of the page */
+  background-color: #f4e5d9; /* Background color */
+  color: black; /* Text color */
+  font-size: 24px; /* Adjust the font size as needed */
+  z-index: 1; /* Ensure it appears above other content */
+  font-family: 'MedievalSharp', cursive; /* Apply the MedievalSharp font */
 }
 
 .header h1 {
   font-size: 36px;
   color: white; /* Set the text color to white */
+}
+
+.header-text {
+  text-align: center; /* Center the text horizontally */
+  position: absolute; /* Position the title absolutely within the header */
+  top: 0; /* Position it at the top of the header */
+  left: 50%; /* Move it to the horizontal center of the header */
+  transform: translateX(-50%); /* Center it precisely horizontally */
+  font-size: 70px; /* Increase the font size as needed */
+  color: black; /* Set the text color to black */
+  z-index: 2; /* Ensure it appears above other content in the header */
+  font-family: 'MedievalSharp', cursive; /* Apply the MedievalSharp font */
+}
+
+
+
+
+.header-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Adjust the height as needed to center vertically in the viewport */
 }
 
 .upload-btn-wrapper {

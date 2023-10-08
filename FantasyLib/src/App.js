@@ -32,7 +32,7 @@ useEffect(() => {
 
 
 
-      if(objectUrl.current.value==="") return 0;
+      //if(objectUrl.current.value==="") return 0;
       const deepAIResponse = await fetch('https://api.deepai.org/api/image-editor', {
         // we use post to because we are sending data to be processed
         method: 'POST',

@@ -167,31 +167,6 @@ function App() {
       setApiResponse({ error: "There was an error uploading the image." });
     }
   };
-  const upload = async () => {
-    if (!selectedImage) return;
-
-    const formData = new FormData();
-    formData.append('image', selectedImage);
-    formData.append('text', "make me into a wizard from harry potter");
-
-    try {
-      const response = await fetch('https://api.deepai.org/api/image-editor', {
-        method: 'POST',
-        headers: {
-          'Api-Key': '2366ef39-2e50-42b4-822d-f114b992d5cb'
-        },
-        body: formData
-      });
-
-      const result = await response.json();
-      console.log(result);
-      setApiResponse(result);
-
-    } catch (error) {
-      console.error('Error uploading the image:', error);
-      setApiResponse({ error: "There was an error uploading the image." });
-    }
-  };
 
   return (
 <div className="App">
@@ -237,7 +212,8 @@ function App() {
 
       </header>
 
-      <input type="file" accept="image/*" onChange={handleImageChange} />
+      <input type="file" classname="inputFile" accept="image/*" onChange={handleImageChange} />
+
       <button className="barbarianbtn" onClick={uploadBarbarian}>Barbarian</button>
       <button className="rangerbtn" onClick={uploadRanger}>Ranger</button>
       <button className="druidbtn" onClick={uploadDruid}>Druid</button>

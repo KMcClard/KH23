@@ -1,91 +1,46 @@
-import React, { useEffect, useState } from 'react';
-import './index.css';
+import React, { useState } from 'react';
+const deepai = require('deepai'); 
 
 function App() {
-  const [files, setFiles] = useState();
-  const [previews, setPreviews] = useState();
-  const [image, setImage] = useState();
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [apiResponse, setApiResponse] = useState(null);
 
-  // Rendering previews for selected images
-  useEffect(() => {
-    if (!files) return;
-    let tmp = [];
-    for (let i = 0; i < files.length; i++) {
-      tmp.push(URL.createObjectURL(files[i]));
-    }
-    setPreviews(temp);
-    return () => {
-    // free memory
-    for (let i = 0; i < tmp.length; i++) {
-        URL.revokeObjectURL(tmp[i]);
-      }
-    };
-  }, [files]);
+  const handleImageChange = (event) => {
+    setSelectedImage(URL.createObjectURL(event.target.files[0]));
+  };
 
-  // Handle image selection
-  function handleImage(e) {
-    setImage(e.target.files[0]);
-  }
+  deepai.setApiKey('2366ef39-2e50-42b4-822d-f114b992d5cb');
 
-  // Handle option change
-  function handleOptionChange(e) {
-    setSelectedOption(e.target.value);
-  }
+  const uploadToDeepAI = async () => {
+    if (!selectedImage) return;
 
-  function ImageUploadComponent(e) {
-    const [files, setFiles] = useState(null);
-    // Handle form submission
-    const handleSubmit = async () => {
-      const formData = new FormData();
-      formData.append('image', files);
-
-      const response = await fetch('http://localhost:8000/process-image', {
-        method: 'POST',
-        body: formData,
+    try {
+      const resp = await deepai.callStandardApi("image-editor", {
+        image: selectedImage,
+        text: "paint a dragon", // You may want to change this to a different value or handle it separately if required
       });
 
-      const data = await response.json();
-      console.log(data);
-    };
-  }
+      console.log(resp);
+      setApiResponse(resp);
+      
+    } catch (error) {
+      console.error('Error uploading the image:', error);
+      setApiResponse({ error: "There was an error uploading the image." });
+    }
+  };
 
   return (
     <div className="App">
-      <header className="header">
-        <h1>FantasyLens</h1>
-      </header>
-      <div className="person">
-        <div className="upload-btn-wrapper">
-          <label className="btn">
-            Upload Image
-            <input type="file" name="file" onChange={handleImage} />
-          </label>
+      <input type="file" accept="image/*" onChange={handleImageChange} />
+      <button onClick={uploadToDeepAI}>Upload to DeepAI</button>
+
+      {/* Display the API response to the user */}
+      {apiResponse && (
+        <div>
+          <h3>API Response:</h3>
+          <pre>{JSON.stringify(apiResponse, null, 2)}</pre>
         </div>
-        <select className="dropdown" onChange={handleOptionChange}>
-          <option value="">Select an option</option>
-          <option value="Barbarian">Barbarian</option>
-          <option value="Ranger">Ranger</option>
-          {/* Other options */}
-        </select>
-        <input
-          type="file"
-          accept="image/jpg, image/jpeg, image/png"
-          multiple
-          onChange={(e) => {
-            if (e.target.files && e.target.files.length > 0) {
-              setFiles(e.target.files[0]);
-            }
-          }}
-        />
-        {previews &&
-          previews.map((pic, index) => {
-            return <img key={index} src={pic} alt={`Preview ${index}`} />;
-          })}
-        <button className="submit-btn" onClick={handleSubmit}>
-          Submit
-        </button>
-      </div>
+      )}
     </div>
   );
 }

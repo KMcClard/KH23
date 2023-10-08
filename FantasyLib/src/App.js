@@ -96,7 +96,7 @@ function App() {
 
     const formData = new FormData();
     formData.append('image', selectedImage);
-    formData.append('text', "subject: gold cloak, bright eyes");
+    formData.append('text', "subject:  gold cloak, bright eyes, priest hat");
 
     try {
       const response = await fetch('https://api.deepai.org/api/image-editor', {
@@ -121,7 +121,7 @@ function App() {
 
     const formData = new FormData();
     formData.append('image', selectedImage);
-    formData.append('text', "subject: purple robe with hood over head, black lines on face");
+    formData.append('text', "subject:  assassin, cloak with hood");
 
     try {
       const response = await fetch('https://api.deepai.org/api/image-editor', {
@@ -211,8 +211,10 @@ function App() {
       <h1 className="header-text">FantasyLens</h1>
 
       </header>
-
+      <br></br>
       <input type="file" classname="inputFile" accept="image/*" onChange={handleImageChange} />
+      <br></br>
+      <br></br>
 
       <button className="barbarianbtn" onClick={uploadBarbarian}>Barbarian</button>
       <button className="rangerbtn" onClick={uploadRanger}>Ranger</button>

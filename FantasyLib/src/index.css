@@ -399,3 +399,6 @@ filter: brightness(60%);
   font-family: 'Ell', sans-serif; /* Use 'Ell' font for buttons, and then fallback to sans-serif if 'Ell' is unavailable */
   /* ... (rest of your button styles) */
 }
+button{
+  align-items: center;
+}

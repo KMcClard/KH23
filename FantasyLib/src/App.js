@@ -1,99 +1,61 @@
- import React, { component } from 'react';
-import './index.css';
-import { useEffect, useState } from "react";
-// import deepai from 'deepai';
+import React, { useState } from 'react';
 
 function App() {
-  const [files, setFiles] = useState();
-  const [previews, setPreviews] = useState();
-  handleNewImage = (event) => {
-    this.setState({
-      picture: event.target.files[0]
-    }, ()=>{
-      console.log(this.state.picture);
-    });
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [apiResponse, setApiResponse] = useState(null);
+
+  const handleImageChange = (event) => {
+    setSelectedImage(event.target.files[0]);
   };
 
-  // rendering previews
+  const uploadToDeepAI = async () => {
+    if (!selectedImage) return;
 
-useEffect(() => {
-    // Declare an async function inside the useEffect hook
-    const processImages = async () => {
-      // Check if files exist
-      if (!files) return;
-      let tmpurl = [];
-      for (let i = 0; i < files.length; i++) {
-        tmpurl.push(URL.createObjectURL(files[i]));
-        console.log(tmpurl);
-      }
+    const formData = new FormData();
+    formData.append('image', selectedImage);
+    formData.append('text', "paint a dragon");
+
+    try {
+      const response = await fetch('https://api.deepai.org/api/image-editor', {
+        method: 'POST',
+        headers: {
+          'Api-Key': '2366ef39-2e50-42b4-822d-f114b992d5cb'
+        },
+        body: formData
+      });
+
+      const result = await response.json();
+      console.log(result);
+      setApiResponse(result);
       
-      const objectUrls = tmpurl;
-      // Use await to fetch the response and parse the data
-      setPreviews(objectUrls);
-      console.log("no");
-    };
-  
-      
-      
-      
-      
-      
-      //FIGURE OUT HOW TO GET THE KEY IN 
-      //FIGURE OUT HOW TO SEND THE IMAGE AND HTE PROMPT
-      // deepai.setApiKey = ('ba02a71f-7628-4a31-a8c3-ef045bbc120f');
-
-      // const resp = await deepai.callStandardApi('image-editor', { image: 'objectsUrl', text: 'give me a viking helemet', }); 
-      
-    
-
-  //     if(objectUrl.current.value==="") return 0;
-  //     const deepAIResponse = await fetch('https://api.deepai.org/api/image-editor', {
-  //       // we use post to because we are sending data to be processed
-  //       method: 'POST',
-  //       // meta data for the request
-  //       headers: {
-  //           'api-key': API_KEY,
-  //           'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({
-  //         //SENDING IMAGE I THINK
-  //           prompt:`${objectUrl.current.value}`
-  //           // image: imageUrl,
-  //           // style: 'watercolor'
-  //           //HEREHEHREHEREHRHERHEHRHERHEHRHERHRE
-  //       }),
-        
-  //   });
-
-      
-      
-  //   }
-    // Call the async function immediately
-    processImages();
-  }, [files]);
-
-  
-
-
-
-
-  
-
+    } catch (error) {
+      console.error('Error uploading the image:', error);
+      setApiResponse({ error: "There was an error uploading the image." });
+    }
+  };
 
   return (
-    <main className="container">
-      <br />
-      <h3>Fantasy Lens</h3>
+    <div className="App">
+      <input type="file" accept="image/*" onChange={handleImageChange} />
+      <button onClick={uploadToDeepAI}>Upload to DeepAI</button>
 
-      <input
-        type="file"
-        accept="image/jpg, image/jpeg, image/png"
-        multiple
-        onChange={this.handleNewImage}
-      />
-      <image src= {this.state.pricture}/>
+      {/* Display the uploaded image to the user */}
+      {selectedImage && (
+        <div>
+          <h3>Uploaded Image:</h3>
+          <img src={selectedImage} alt="Uploaded by user" style={{ maxWidth: '100%', height: 'auto' }} />
+        </div>
+      )}
       
-    </main>
+      {/* Display the API response to the user */}
+      {apiResponse && apiResponse.output_url &&(
+        <div>
+          <h3>Your Image:</h3>
+          <img src = {apiResponse.output_url} alt = "Edited by DeepAI" 
+            style = {{ maxWidth: '100%', height: 'auto'}} />
+        </div>
+      )}
+    </div>
   );
 }
 

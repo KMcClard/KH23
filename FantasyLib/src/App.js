@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
+import './index.css';
 
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [uploadedImage, setUploadedImage] = useState(null);
   const [apiResponse, setApiResponse] = useState(null);
 
   const handleImageChange = (event) => {
     setSelectedImage(event.target.files[0]);
+    if (event.target.files && event.target.files[0]) {
+      const imageUrl = URL.createObjectURL(event.target.files[0]);
+      setUploadedImage(imageUrl);
+    }
   };
 
   const uploadToDeepAI = async () => {
@@ -13,7 +19,7 @@ function App() {
 
     const formData = new FormData();
     formData.append('image', selectedImage);
-    formData.append('text', "paint a dragon");
+    formData.append('text', "make me into a wizard from harry potter");
 
     try {
       const response = await fetch('https://api.deepai.org/api/image-editor', {
@@ -40,10 +46,10 @@ function App() {
       <button onClick={uploadToDeepAI}>Upload to DeepAI</button>
 
       {/* Display the uploaded image to the user */}
-      {selectedImage && (
+      {uploadedImage && (
         <div>
           <h3>Uploaded Image:</h3>
-          <img src={selectedImage} alt="Uploaded by user" style={{ maxWidth: '50px', height: '50px' }} />
+          <img src={uploadedImage} alt="Uploaded by user" style={{ maxWidth: '200px', height: '200px' }} />
         </div>
       )}
       

@@ -1,6 +1,7 @@
  import React, { component } from 'react';
 import './index.css';
 import { useEffect, useState } from "react";
+// import deepai from 'deepai';
 
 function App() {
   const [files, setFiles] = useState();
@@ -21,7 +22,8 @@ useEffect(() => {
       const objectUrls = tmpurl;
       // Use await to fetch the response and parse the data
       setPreviews(objectUrls);
-      
+    };
+  });
       
       
       
@@ -29,34 +31,37 @@ useEffect(() => {
       
       //FIGURE OUT HOW TO GET THE KEY IN 
       //FIGURE OUT HOW TO SEND THE IMAGE AND HTE PROMPT
+      // deepai.setApiKey = ('ba02a71f-7628-4a31-a8c3-ef045bbc120f');
 
+      // const resp = await deepai.callStandardApi('image-editor', { image: 'objectsUrl', text: 'give me a viking helemet', }); 
+      
+    
 
-
-      //if(objectUrl.current.value==="") return 0;
-      const deepAIResponse = await fetch('https://api.deepai.org/api/image-editor', {
-        // we use post to because we are sending data to be processed
-        method: 'POST',
-        // meta data for the request
-        headers: {
-            'api-key': API_KEY,
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          //SENDING IMAGE I THINK
-            prompt:`${objectUrl.current.value}`
-            // image: imageUrl,
-            // style: 'watercolor'
-            //HEREHEHREHEREHRHERHEHRHERHEHRHERHRE
-        }),
+  //     if(objectUrl.current.value==="") return 0;
+  //     const deepAIResponse = await fetch('https://api.deepai.org/api/image-editor', {
+  //       // we use post to because we are sending data to be processed
+  //       method: 'POST',
+  //       // meta data for the request
+  //       headers: {
+  //           'api-key': API_KEY,
+  //           'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //         //SENDING IMAGE I THINK
+  //           prompt:`${objectUrl.current.value}`
+  //           // image: imageUrl,
+  //           // style: 'watercolor'
+  //           //HEREHEHREHEREHRHERHEHRHERHEHRHERHRE
+  //       }),
         
-    });
+  //   });
 
       
       
-    }
-    // Call the async function immediately
-    processImages();
-  }, [files]);
+  //   }
+  //   // Call the async function immediately
+  //   processImages();
+  // }, [files]);
 
   
 
@@ -83,9 +88,9 @@ useEffect(() => {
       />
       {previews &&
         previews.map((pic) => {
-          sendImage(tmpurl);
           return <img src={pic} />;
         })}
+      
     </main>
   );
 }

@@ -334,7 +334,7 @@ filter: brightness(60%);
   /* Add some text-shadow to create a carved effect */
   color: black;
 }
-.roguenbtn:hover {
+.roguebtn:hover {
 filter: brightness(60%);
 }
 .warlockbtn{

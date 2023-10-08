@@ -21,7 +21,7 @@ function App() {
 
     const formData = new FormData();
     formData.append('image', selectedImage);
-    formData.append('text', "Viking helmet with two horns and a long beard");
+    formData.append('text', "subject: beard, metal helmet");
 
     try {
       const response = await fetch('https://api.deepai.org/api/image-editor', {
@@ -46,7 +46,7 @@ function App() {
 
     const formData = new FormData();
     formData.append('image', selectedImage);
-    formData.append('text', "green jacket hood over head");
+    formData.append('text', "subject: elf with a bow and arrow");
 
     try {
       const response = await fetch('https://api.deepai.org/api/image-editor', {
@@ -96,7 +96,7 @@ function App() {
 
     const formData = new FormData();
     formData.append('image', selectedImage);
-    formData.append('text', "pale flowing gold cloak. light hair");
+    formData.append('text', "subject: gold cloak, bright eyes");
 
     try {
       const response = await fetch('https://api.deepai.org/api/image-editor', {
@@ -121,7 +121,7 @@ function App() {
 
     const formData = new FormData();
     formData.append('image', selectedImage);
-    formData.append('text', "purple robe with hood over head. Give me face tats");
+    formData.append('text', "subject: purple robe with hood over head, black lines on face");
 
     try {
       const response = await fetch('https://api.deepai.org/api/image-editor', {
@@ -147,7 +147,7 @@ function App() {
 
     const formData = new FormData();
     formData.append('image', selectedImage);
-    formData.append('text', "make me into a wizard from harry potter");
+    formData.append('text', "subject:  long white beard, wizard hat");
 
     try {
       const response = await fetch('https://api.deepai.org/api/image-editor', {

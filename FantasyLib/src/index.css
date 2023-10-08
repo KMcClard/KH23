@@ -1,7 +1,10 @@
-/* Updated CSS styles */
 body {
-  background-color: purple; /* Set the background color of the entire site to purple */
-  margin: 0; /* Remove default margin to have full-width background */
+  background-color: #f4e5d9; /* Light beige background color */
+  background-image: url('parchment-texture.jpg'); /* Use a parchment texture image */
+  background-repeat: repeat; /* Repeat the texture */
+  background-size: cover; /* Make the background image cover the entire viewport */
+  font-family: Arial, sans-serif; /* Choose an appropriate font */
+  color: #503d30; /* Choose a color for the text */
 }
 
 .person {

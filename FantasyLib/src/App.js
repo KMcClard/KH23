@@ -43,7 +43,7 @@ function App() {
       {selectedImage && (
         <div>
           <h3>Uploaded Image:</h3>
-          <img src={selectedImage} alt="Uploaded by user" style={{ maxWidth: '100%', height: 'auto' }} />
+          <img src={selectedImage} alt="Uploaded by user" style={{ maxWidth: '50px', height: '50px' }} />
         </div>
       )}
       

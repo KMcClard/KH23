@@ -398,7 +398,8 @@ filter: brightness(60%);
 .warlockbtn {
   font-family: 'Ell', sans-serif; /* Use 'Ell' font for buttons, and then fallback to sans-serif if 'Ell' is unavailable */
   /* ... (rest of your button styles) */
+  align-items: center;
 }
-button{
+.inputFile{
   align-items: center;
 }

@@ -1,11 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+
+
 body {
+  margin: 0; /* Remove default body margin */
+  padding: 0; /* Remove default body padding */
+  display: flex; /* Use flexbox to center header */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  min-height: 100vh; /* Ensure the body covers the entire viewport height */
   background-color: #f4e5d9; /* Light beige background color */
   background-image: url('parchment-texture.jpg'); /* Use a parchment texture image */
   background-repeat: repeat; /* Repeat the texture */
   background-size: cover; /* Make the background image cover the entire viewport */
   font-family: Arial, sans-serif; /* Choose an appropriate font */
   color: #503d30; /* Choose a color for the text */
+  font-family: 'MedievalSharp', cursive, Arial, sans-serif; /* Use 'MedievalSharp' font first, and then fallback to other fonts */
 }
+
+
 
 .person {
   display: flex;
@@ -16,16 +29,70 @@ body {
 }
 
 .header {
-  text-align: center;
-  margin-bottom: 20px;
-  border-bottom: 2px solid white; /* Add a white line under the header */
-  padding-bottom: 10px; /* Add some space between the header and the line */
+  text-align: center; /* Center the text horizontally */
+  padding: 20px; /* Add some padding for spacing */
+  position: fixed; /* Position the header as a fixed element */
+  top: 0; /* Stick it to the top of the page */
+  left: 0; /* Stick it to the left of the page */
+  right: 0; /* Stick it to the right of the page */
+  background-color: #f4e5d9; /* Background color */
+  color: black; /* Text color */
+  font-size: 24px; /* Adjust the font size as needed */
+  z-index: 1; /* Ensure it appears above other content */
+  font-family: 'MedievalSharp', cursive; /* Apply the MedievalSharp font */
 }
 
 .header h1 {
   font-size: 36px;
   color: white; /* Set the text color to white */
 }
+
+.header-text {
+  text-align: center; /* Center the text horizontally */
+  position: absolute; /* Position the title absolutely within the header */
+  top: 0; /* Position it at the top of the header */
+  left: 50%; /* Move it to the horizontal center of the header */
+  transform: translateX(-50%); /* Center it precisely horizontally */
+  font-size: 70px; /* Increase the font size as needed */
+  color: black; /* Set the text color to black */
+  z-index: 2; /* Ensure it appears above other content in the header */
+  font-family: 'MedievalSharp', cursive; /* Apply the MedievalSharp font */
+}
+
+
+
+
+.header-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Adjust the height as needed to center vertically in the viewport */
+}
+
+
+
+
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center both horizontally and vertically */
+  margin-top: 20px;
+  margin-left: 200px;
+}
+
+.image-preview {
+  flex: 1;
+  margin-right: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically within .image-preview */
+  align-items: center; /* Center content horizontally within .image-preview */
+}
+
+
+
+
 
 .upload-btn-wrapper {
   position: relative;
@@ -69,4 +136,266 @@ body {
   content: '\2192';
   margin-left: 5px;
   font-size: 20px;
+}
+.rangerbtn {
+  
+    /* Use a radial gradient to create a tree ring texture */
+    background-image: radial-gradient(
+      circle at center,
+      #a67c52 0%,
+      #c69c6d 10%,
+      #a67c52 20%,
+      #c69c6d 30%,
+      #a67c52 40%,
+      #c69c6d 50%,
+      #a67c52 60%,
+      #c69c6d 70%,
+      #a67c52 80%,
+      #c69c6d 90%,
+      #a67c52 100%
+    );
+    /* Add some padding and border-radius */
+    padding: 10px;
+    border-radius: 50%;
+    /* Add a dark border to create a bark effect */
+    border: 5px solid #5f3e25;
+    /* Add some box-shadow to create a shadow effect */
+    box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+      inset 2px 2px 4px rgba(255, 255, 255, 0.1), -4px -4px 8px rgba(0, 0, 0, 0.4),
+      4px 4px 8px rgba(255, 255, 255, 0.2);
+    /* Add some text-shadow to create a carved effect */
+    color: black;
+}
+.rangerbtn:hover {
+  filter: brightness(60%);
+}
+.rangerbtn {
+  
+  /* Use a radial gradient to create a tree ring texture */
+  background-image: radial-gradient(
+    circle at center,
+    #a67c52 0%,
+    #c69c6d 10%,
+    #a67c52 20%,
+    #c69c6d 30%,
+    #a67c52 40%,
+    #c69c6d 50%,
+    #a67c52 60%,
+    #c69c6d 70%,
+    #a67c52 80%,
+    #c69c6d 90%,
+    #a67c52 100%
+  );
+  /* Add some padding and border-radius */
+  padding: 10px;
+  border-radius: 50%;
+  margin-left: 10px;
+  /* Add a dark border to create a bark effect */
+  border: 5px solid #5f3e25;
+  /* Add some box-shadow to create a shadow effect */
+  box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1), -4px -4px 8px rgba(0, 0, 0, 0.4),
+    4px 4px 8px rgba(255, 255, 255, 0.2);
+  /* Add some text-shadow to create a carved effect */
+  color: black;
+}
+.rangerbtn:hover {
+filter: brightness(60%);
+}
+.barbarianbtn{
+  
+  /* Use a radial gradient to create a tree ring texture */
+  background-image: radial-gradient(
+    circle at center,
+    #a67c52 0%,
+    #c69c6d 10%,
+    #a67c52 20%,
+    #c69c6d 30%,
+    #a67c52 40%,
+    #c69c6d 50%,
+    #a67c52 60%,
+    #c69c6d 70%,
+    #a67c52 80%,
+    #c69c6d 90%,
+    #a67c52 100%
+  );
+  /* Add some padding and border-radius */
+  padding: 10px;
+  border-radius: 50%;
+  
+  /* Add a dark border to create a bark effect */
+  border: 5px solid #5f3e25;
+  /* Add some box-shadow to create a shadow effect */
+  box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1), -4px -4px 8px rgba(0, 0, 0, 0.4),
+    4px 4px 8px rgba(255, 255, 255, 0.2);
+  /* Add some text-shadow to create a carved effect */
+  color: black;
+}
+.barbarianbtn:hover {
+filter: brightness(60%);
+}
+button{
+  font-family: 'https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap';
+  align-items: center;
+}
+.druidbtn{
+  /* Use a radial gradient to create a tree ring texture */
+  background-image: radial-gradient(
+    circle at center,
+    #a67c52 0%,
+    #c69c6d 10%,
+    #a67c52 20%,
+    #c69c6d 30%,
+    #a67c52 40%,
+    #c69c6d 50%,
+    #a67c52 60%,
+    #c69c6d 70%,
+    #a67c52 80%,
+    #c69c6d 90%,
+    #a67c52 100%
+  );
+  /* Add some padding and border-radius */
+  padding: 10px;
+  border-radius: 50%;
+  margin-left: 10px;
+  /* Add a dark border to create a bark effect */
+  border: 5px solid #5f3e25;
+  /* Add some box-shadow to create a shadow effect */
+  box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1), -4px -4px 8px rgba(0, 0, 0, 0.4),
+    4px 4px 8px rgba(255, 255, 255, 0.2);
+  /* Add some text-shadow to create a carved effect */
+  color: black;
+}
+.druidbtn:hover {
+filter: brightness(60%);
+}
+.clericbtn{
+  
+  /* Use a radial gradient to create a tree ring texture */
+  background-image: radial-gradient(
+    circle at center,
+    #a67c52 0%,
+    #c69c6d 10%,
+    #a67c52 20%,
+    #c69c6d 30%,
+    #a67c52 40%,
+    #c69c6d 50%,
+    #a67c52 60%,
+    #c69c6d 70%,
+    #a67c52 80%,
+    #c69c6d 90%,
+    #a67c52 100%
+  );
+  /* Add some padding and border-radius */
+  padding: 10px;
+  border-radius: 50%;
+  margin-left: 10px;
+  /* Add a dark border to create a bark effect */
+  border: 5px solid #5f3e25;
+  /* Add some box-shadow to create a shadow effect */
+  box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1), -4px -4px 8px rgba(0, 0, 0, 0.4),
+    4px 4px 8px rgba(255, 255, 255, 0.2);
+  /* Add some text-shadow to create a carved effect */
+  color: black;
+}
+.clericbtn:hover {
+filter: brightness(60%);
+}
+.roguebtn{
+  
+  /* Use a radial gradient to create a tree ring texture */
+  background-image: radial-gradient(
+    circle at center,
+    #a67c52 0%,
+    #c69c6d 10%,
+    #a67c52 20%,
+    #c69c6d 30%,
+    #a67c52 40%,
+    #c69c6d 50%,
+    #a67c52 60%,
+    #c69c6d 70%,
+    #a67c52 80%,
+    #c69c6d 90%,
+    #a67c52 100%
+  );
+  /* Add some padding and border-radius */
+  padding: 10px;
+  border-radius: 50%;
+  margin-left: 10px;
+  /* Add a dark border to create a bark effect */
+  border: 5px solid #5f3e25;
+  /* Add some box-shadow to create a shadow effect */
+  box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1), -4px -4px 8px rgba(0, 0, 0, 0.4),
+    4px 4px 8px rgba(255, 255, 255, 0.2);
+  /* Add some text-shadow to create a carved effect */
+  color: black;
+}
+.roguenbtn:hover {
+filter: brightness(60%);
+}
+.warlockbtn{
+  
+  /* Use a radial gradient to create a tree ring texture */
+  background-image: radial-gradient(
+    circle at center,
+    #a67c52 0%,
+    #c69c6d 10%,
+    #a67c52 20%,
+    #c69c6d 30%,
+    #a67c52 40%,
+    #c69c6d 50%,
+    #a67c52 60%,
+    #c69c6d 70%,
+    #a67c52 80%,
+    #c69c6d 90%,
+    #a67c52 100%
+  );
+  /* Add some padding and border-radius */
+  padding: 10px;
+  border-radius: 50%;
+  margin-left: 10px;
+  /* Add a dark border to create a bark effect */
+  border: 5px solid #5f3e25;
+  /* Add some box-shadow to create a shadow effect */
+  box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1), -4px -4px 8px rgba(0, 0, 0, 0.4),
+    4px 4px 8px rgba(255, 255, 255, 0.2);
+  /* Add some text-shadow to create a carved effect */
+  color: black;
+}
+.warlockbtn:hover {
+filter: brightness(60%);
+}
+
+
+.image-preview img.uploaded-image {
+  border: 200px solid #3498db; /* Add a thicker (4px) blue border around the uploaded image */
+  padding: 5px; /* Add some padding inside the border */
+}
+
+
+
+.image-preview img.rendered-image {
+  border: 20px solid #e74c3c; /* Add a thicker (4px) red border around the rendered image */
+  padding: 5px; /* Add some padding inside the border */
+}
+
+.inputFile{
+  text-align: center;
+}
+  
+
+/* Specify the 'Ell' font for button text */
+.rangerbtn,
+.barbarianbtn,
+.druidbtn,
+.clericbtn,
+.roguebtn,
+.warlockbtn {
+  font-family: 'Ell', sans-serif; /* Use 'Ell' font for buttons, and then fallback to sans-serif if 'Ell' is unavailable */
+  /* ... (rest of your button styles) */
 }

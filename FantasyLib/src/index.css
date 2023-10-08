@@ -109,3 +109,234 @@ body {
   margin-left: 5px;
   font-size: 20px;
 }
+.rangerbtn {
+  
+    /* Use a radial gradient to create a tree ring texture */
+    background-image: radial-gradient(
+      circle at center,
+      #a67c52 0%,
+      #c69c6d 10%,
+      #a67c52 20%,
+      #c69c6d 30%,
+      #a67c52 40%,
+      #c69c6d 50%,
+      #a67c52 60%,
+      #c69c6d 70%,
+      #a67c52 80%,
+      #c69c6d 90%,
+      #a67c52 100%
+    );
+    /* Add some padding and border-radius */
+    padding: 10px;
+    border-radius: 50%;
+    /* Add a dark border to create a bark effect */
+    border: 5px solid #5f3e25;
+    /* Add some box-shadow to create a shadow effect */
+    box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+      inset 2px 2px 4px rgba(255, 255, 255, 0.1), -4px -4px 8px rgba(0, 0, 0, 0.4),
+      4px 4px 8px rgba(255, 255, 255, 0.2);
+    /* Add some text-shadow to create a carved effect */
+    color: black;
+}
+.rangerbtn:hover {
+  filter: brightness(60%);
+}
+.rangerbtn {
+  
+  /* Use a radial gradient to create a tree ring texture */
+  background-image: radial-gradient(
+    circle at center,
+    #a67c52 0%,
+    #c69c6d 10%,
+    #a67c52 20%,
+    #c69c6d 30%,
+    #a67c52 40%,
+    #c69c6d 50%,
+    #a67c52 60%,
+    #c69c6d 70%,
+    #a67c52 80%,
+    #c69c6d 90%,
+    #a67c52 100%
+  );
+  /* Add some padding and border-radius */
+  padding: 10px;
+  border-radius: 50%;
+  margin-left: 10px;
+  /* Add a dark border to create a bark effect */
+  border: 5px solid #5f3e25;
+  /* Add some box-shadow to create a shadow effect */
+  box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1), -4px -4px 8px rgba(0, 0, 0, 0.4),
+    4px 4px 8px rgba(255, 255, 255, 0.2);
+  /* Add some text-shadow to create a carved effect */
+  color: black;
+}
+.rangerbtn:hover {
+filter: brightness(60%);
+}
+.barbarianbtn{
+  
+  /* Use a radial gradient to create a tree ring texture */
+  background-image: radial-gradient(
+    circle at center,
+    #a67c52 0%,
+    #c69c6d 10%,
+    #a67c52 20%,
+    #c69c6d 30%,
+    #a67c52 40%,
+    #c69c6d 50%,
+    #a67c52 60%,
+    #c69c6d 70%,
+    #a67c52 80%,
+    #c69c6d 90%,
+    #a67c52 100%
+  );
+  /* Add some padding and border-radius */
+  padding: 10px;
+  border-radius: 50%;
+  
+  /* Add a dark border to create a bark effect */
+  border: 5px solid #5f3e25;
+  /* Add some box-shadow to create a shadow effect */
+  box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1), -4px -4px 8px rgba(0, 0, 0, 0.4),
+    4px 4px 8px rgba(255, 255, 255, 0.2);
+  /* Add some text-shadow to create a carved effect */
+  color: black;
+}
+.barbarianbtn:hover {
+filter: brightness(60%);
+}
+.druidbtn{
+  
+  /* Use a radial gradient to create a tree ring texture */
+  background-image: radial-gradient(
+    circle at center,
+    #a67c52 0%,
+    #c69c6d 10%,
+    #a67c52 20%,
+    #c69c6d 30%,
+    #a67c52 40%,
+    #c69c6d 50%,
+    #a67c52 60%,
+    #c69c6d 70%,
+    #a67c52 80%,
+    #c69c6d 90%,
+    #a67c52 100%
+  );
+  /* Add some padding and border-radius */
+  padding: 10px;
+  border-radius: 50%;
+  margin-left: 10px;
+  /* Add a dark border to create a bark effect */
+  border: 5px solid #5f3e25;
+  /* Add some box-shadow to create a shadow effect */
+  box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1), -4px -4px 8px rgba(0, 0, 0, 0.4),
+    4px 4px 8px rgba(255, 255, 255, 0.2);
+  /* Add some text-shadow to create a carved effect */
+  color: black;
+}
+.druidbtn:hover {
+filter: brightness(60%);
+}
+.clericbtn{
+  
+  /* Use a radial gradient to create a tree ring texture */
+  background-image: radial-gradient(
+    circle at center,
+    #a67c52 0%,
+    #c69c6d 10%,
+    #a67c52 20%,
+    #c69c6d 30%,
+    #a67c52 40%,
+    #c69c6d 50%,
+    #a67c52 60%,
+    #c69c6d 70%,
+    #a67c52 80%,
+    #c69c6d 90%,
+    #a67c52 100%
+  );
+  /* Add some padding and border-radius */
+  padding: 10px;
+  border-radius: 50%;
+  margin-left: 10px;
+  /* Add a dark border to create a bark effect */
+  border: 5px solid #5f3e25;
+  /* Add some box-shadow to create a shadow effect */
+  box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1), -4px -4px 8px rgba(0, 0, 0, 0.4),
+    4px 4px 8px rgba(255, 255, 255, 0.2);
+  /* Add some text-shadow to create a carved effect */
+  color: black;
+}
+.clericbtn:hover {
+filter: brightness(60%);
+}
+.roguebtn{
+  
+  /* Use a radial gradient to create a tree ring texture */
+  background-image: radial-gradient(
+    circle at center,
+    #a67c52 0%,
+    #c69c6d 10%,
+    #a67c52 20%,
+    #c69c6d 30%,
+    #a67c52 40%,
+    #c69c6d 50%,
+    #a67c52 60%,
+    #c69c6d 70%,
+    #a67c52 80%,
+    #c69c6d 90%,
+    #a67c52 100%
+  );
+  /* Add some padding and border-radius */
+  padding: 10px;
+  border-radius: 50%;
+  margin-left: 10px;
+  /* Add a dark border to create a bark effect */
+  border: 5px solid #5f3e25;
+  /* Add some box-shadow to create a shadow effect */
+  box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1), -4px -4px 8px rgba(0, 0, 0, 0.4),
+    4px 4px 8px rgba(255, 255, 255, 0.2);
+  /* Add some text-shadow to create a carved effect */
+  color: black;
+}
+.roguenbtn:hover {
+filter: brightness(60%);
+}
+.warlockbtn{
+  
+  /* Use a radial gradient to create a tree ring texture */
+  background-image: radial-gradient(
+    circle at center,
+    #a67c52 0%,
+    #c69c6d 10%,
+    #a67c52 20%,
+    #c69c6d 30%,
+    #a67c52 40%,
+    #c69c6d 50%,
+    #a67c52 60%,
+    #c69c6d 70%,
+    #a67c52 80%,
+    #c69c6d 90%,
+    #a67c52 100%
+  );
+  /* Add some padding and border-radius */
+  padding: 10px;
+  border-radius: 50%;
+  margin-left: 10px;
+  /* Add a dark border to create a bark effect */
+  border: 5px solid #5f3e25;
+  /* Add some box-shadow to create a shadow effect */
+  box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1), -4px -4px 8px rgba(0, 0, 0, 0.4),
+    4px 4px 8px rgba(255, 255, 255, 0.2);
+  /* Add some text-shadow to create a carved effect */
+  color: black;
+}
+.warlockbtn:hover {
+filter: brightness(60%);
+}
+

@@ -206,12 +206,12 @@ function App() {
       </header>
 
       <input type="file" accept="image/*" onChange={handleImageChange} />
-      <button onClick={uploadBarbarian}>Barbarian</button>
-      <button onClick={uploadRanger}>Ranger</button>
-      <button onClick={uploadDruid}>Druid</button>
-      <button onClick={uploadCleric}>Cleric</button>
-      <button onClick={uploadRogue}>Rogue</button>
-      <button onClick={uploadWarlock}>Warlock</button>
+      <button className="barbarianbtn" onClick={uploadBarbarian}>Barbarian</button>
+      <button className="rangerbtn" onClick={uploadRanger}>Ranger</button>
+      <button className="druidbtn" onClick={uploadDruid}>Druid</button>
+      <button className="clericbtn" onClick={uploadCleric}>Cleric</button>
+      <button className="roguebtn" onClick={uploadRogue}>Rogue</button>
+      <button className="warlockbtn" onClick={uploadWarlock}>Warlock</button>
 
       {/* Display the uploaded image to the user */}
       {uploadedImage && (

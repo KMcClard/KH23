@@ -6,6 +6,13 @@ import { useEffect, useState } from "react";
 function App() {
   const [files, setFiles] = useState();
   const [previews, setPreviews] = useState();
+  handleNewImage = (event) => {
+    this.setState({
+      picture: event.target.files[0]
+    }, ()=>{
+      console.log(this.state.picture);
+    });
+  };
 
   // rendering previews
 
@@ -17,13 +24,15 @@ useEffect(() => {
       let tmpurl = [];
       for (let i = 0; i < files.length; i++) {
         tmpurl.push(URL.createObjectURL(files[i]));
+        console.log(tmpurl);
       }
       
       const objectUrls = tmpurl;
       // Use await to fetch the response and parse the data
       setPreviews(objectUrls);
+      console.log("no");
     };
-  });
+  
       
       
       
@@ -59,9 +68,9 @@ useEffect(() => {
       
       
   //   }
-  //   // Call the async function immediately
-  //   processImages();
-  // }, [files]);
+    // Call the async function immediately
+    processImages();
+  }, [files]);
 
   
 
@@ -80,16 +89,9 @@ useEffect(() => {
         type="file"
         accept="image/jpg, image/jpeg, image/png"
         multiple
-        onChange={(e) => {
-          if (e.target.files && e.target.files.length > 0) {
-            setFiles(e.target.files);
-          }
-        }}
+        onChange={this.handleNewImage}
       />
-      {previews &&
-        previews.map((pic) => {
-          return <img src={pic} />;
-        })}
+      <image src= {this.state.pricture}/>
       
     </main>
   );

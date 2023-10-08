@@ -194,8 +194,40 @@ function App() {
   };
 
   return (
-    <div className="App">
+<div className="App">
+  <header>
+    <h1 className="header-text">FantasyLens</h1>
+  </header>
 
+  <div className="image-container">
+    <div className="image-preview">
+      {/* Display the uploaded image to the user */}
+      {uploadedImage && (
+        <div>
+          <h3>Uploaded Image:</h3>
+          <img
+            src={uploadedImage}
+            alt="Uploaded by user"
+            style={{ maxWidth: '350px', height: '350px' }}
+          />
+        </div>
+      )}
+    </div>
+    
+    <div className="image-preview">
+      {/* Display the API response to the user */}
+      {apiResponse && apiResponse.output_url && (
+        <div>
+          <h3>Your Image:</h3>
+          <img
+            src={apiResponse.output_url}
+            alt="Edited by DeepAI"
+            style={{ maxWidth: '350px', height: '350px' }}
+          />
+        </div>
+      )}
+    </div>
+  </div>
 
       <header>
 
@@ -213,22 +245,8 @@ function App() {
       <button className="roguebtn" onClick={uploadRogue}>Rogue</button>
       <button className="warlockbtn" onClick={uploadWarlock}>Warlock</button>
 
-      {/* Display the uploaded image to the user */}
-      {uploadedImage && (
-        <div>
-          <h3>Uploaded Image:</h3>
-          <img src={uploadedImage} alt="Uploaded by user" style={{ maxWidth: '200px', height: '200px' }} />
-        </div>
-      )}
       
-      {/* Display the API response to the user */}
-      {apiResponse && apiResponse.output_url &&(
-        <div>
-          <h3>Your Image:</h3>
-          <img src = {apiResponse.output_url} alt = "Edited by DeepAI" 
-            style = {{ maxWidth: '100%', height: 'auto'}} />
-        </div>
-      )}
+    
     </div>
   );
 }

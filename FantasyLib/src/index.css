@@ -66,6 +66,31 @@ body {
   height: 100vh; /* Adjust the height as needed to center vertically in the viewport */
 }
 
+
+
+
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center both horizontally and vertically */
+  margin-top: 20px;
+  margin-left: 200px;
+}
+
+.image-preview {
+  flex: 1;
+  margin-right: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically within .image-preview */
+  align-items: center; /* Center content horizontally within .image-preview */
+}
+
+
+
+
+
 .upload-btn-wrapper {
   position: relative;
   overflow: hidden;
@@ -207,8 +232,8 @@ filter: brightness(60%);
 .barbarianbtn:hover {
 filter: brightness(60%);
 }
+
 .druidbtn{
-  
   /* Use a radial gradient to create a tree ring texture */
   background-image: radial-gradient(
     circle at center,
@@ -340,3 +365,15 @@ filter: brightness(60%);
 filter: brightness(60%);
 }
 
+
+.image-preview img.uploaded-image {
+  border: 200px solid #3498db; /* Add a thicker (4px) blue border around the uploaded image */
+  padding: 5px; /* Add some padding inside the border */
+}
+
+
+
+.image-preview img.rendered-image {
+  border: 20px solid #e74c3c; /* Add a thicker (4px) red border around the rendered image */
+  padding: 5px; /* Add some padding inside the border */
+}

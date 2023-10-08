@@ -1,27 +1,32 @@
 import React, { useState } from 'react';
-const deepai = require('deepai'); 
 
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [apiResponse, setApiResponse] = useState(null);
 
   const handleImageChange = (event) => {
-    setSelectedImage(URL.createObjectURL(event.target.files[0]));
+    setSelectedImage(event.target.files[0]);
   };
-
-  deepai.setApiKey('2366ef39-2e50-42b4-822d-f114b992d5cb');
 
   const uploadToDeepAI = async () => {
     if (!selectedImage) return;
 
+    const formData = new FormData();
+    formData.append('image', selectedImage);
+    formData.append('text', "paint a dragon");
+
     try {
-      const resp = await deepai.callStandardApi("image-editor", {
-        image: selectedImage,
-        text: "paint a dragon", // You may want to change this to a different value or handle it separately if required
+      const response = await fetch('https://api.deepai.org/api/image-editor', {
+        method: 'POST',
+        headers: {
+          'Api-Key': '2366ef39-2e50-42b4-822d-f114b992d5cb'
+        },
+        body: formData
       });
 
-      console.log(resp);
-      setApiResponse(resp);
+      const result = await response.json();
+      console.log(result);
+      setApiResponse(result);
       
     } catch (error) {
       console.error('Error uploading the image:', error);

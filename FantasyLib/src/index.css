@@ -3,19 +3,19 @@
 
 
 body {
-  margin: 0; /* Remove default body margin */
-  padding: 0; /* Remove default body padding */
-  display: flex; /* Use flexbox to center header */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  min-height: 100vh; /* Ensure the body covers the entire viewport height */
-  background-color: #f4e5d9; /* Light beige background color */
-  background-image: url('parchment-texture.jpg'); /* Use a parchment texture image */
-  background-repeat: repeat; /* Repeat the texture */
-  background-size: cover; /* Make the background image cover the entire viewport */
-  font-family: Arial, sans-serif; /* Choose an appropriate font */
-  color: #503d30; /* Choose a color for the text */
-  font-family: 'MedievalSharp', cursive, Arial, sans-serif; /* Use 'MedievalSharp' font first, and then fallback to other fonts */
+  margin: 0; 
+  padding: 0; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  min-height: 100vh; 
+  background-color: #f4e5d9; 
+  background-image: url('parchment-texture.jpg'); 
+  background-repeat: repeat; 
+  background-size: cover; 
+  font-family: Arial, sans-serif; 
+  color: #503d30; 
+  font-family: 'MedievalSharp', cursive, Arial, sans-serif; 
 }
 
 
@@ -29,34 +29,34 @@ body {
 }
 
 .header {
-  text-align: center; /* Center the text horizontally */
-  padding: 20px; /* Add some padding for spacing */
-  position: fixed; /* Position the header as a fixed element */
-  top: 0; /* Stick it to the top of the page */
-  left: 0; /* Stick it to the left of the page */
-  right: 0; /* Stick it to the right of the page */
-  background-color: #f4e5d9; /* Background color */
-  color: black; /* Text color */
-  font-size: 24px; /* Adjust the font size as needed */
-  z-index: 1; /* Ensure it appears above other content */
-  font-family: 'MedievalSharp', cursive; /* Apply the MedievalSharp font */
+  text-align: center; 
+  padding: 20px; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  background-color: #f4e5d9; 
+  color: black; 
+  font-size: 24px; 
+  z-index: 1; 
+  font-family: 'MedievalSharp', cursive; 
 }
 
 .header h1 {
   font-size: 36px;
-  color: white; /* Set the text color to white */
+  color: white; 
 }
 
 .header-text {
-  text-align: center; /* Center the text horizontally */
-  position: absolute; /* Position the title absolutely within the header */
-  top: 0; /* Position it at the top of the header */
-  left: 50%; /* Move it to the horizontal center of the header */
-  transform: translateX(-50%); /* Center it precisely horizontally */
-  font-size: 70px; /* Increase the font size as needed */
-  color: black; /* Set the text color to black */
-  z-index: 2; /* Ensure it appears above other content in the header */
-  font-family: 'MedievalSharp', cursive; /* Apply the MedievalSharp font */
+  text-align: center; 
+  position: absolute; 
+  top: 0; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  font-size: 70px; 
+  color: black; 
+  z-index: 2; 
+  font-family: 'MedievalSharp', cursive; 
 }
 
 
@@ -64,9 +64,9 @@ body {
 
 .header-container {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 100vh; /* Adjust the height as needed to center vertically in the viewport */
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
 }
 
 
@@ -76,7 +76,7 @@ body {
 .image-container {
   display: flex;
   justify-content: center;
-  align-items: center; /* Center both horizontally and vertically */
+  align-items: center; 
   margin-top: 20px;
   margin-left: 200px;
 }
@@ -86,8 +86,8 @@ body {
   margin-right: 250px;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content vertically within .image-preview */
-  align-items: center; /* Center content horizontally within .image-preview */
+  justify-content: center; 
+  align-items: center; 
 }
 
 

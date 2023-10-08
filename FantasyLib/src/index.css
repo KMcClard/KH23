@@ -15,7 +15,10 @@ body {
   background-size: cover; /* Make the background image cover the entire viewport */
   font-family: Arial, sans-serif; /* Choose an appropriate font */
   color: #503d30; /* Choose a color for the text */
+  font-family: 'MedievalSharp', cursive, Arial, sans-serif; /* Use 'MedievalSharp' font first, and then fallback to other fonts */
 }
+
+
 
 .person {
   display: flex;
@@ -376,4 +379,16 @@ filter: brightness(60%);
 .image-preview img.rendered-image {
   border: 20px solid #e74c3c; /* Add a thicker (4px) red border around the rendered image */
   padding: 5px; /* Add some padding inside the border */
+}
+
+
+/* Specify the 'Ell' font for button text */
+.rangerbtn,
+.barbarianbtn,
+.druidbtn,
+.clericbtn,
+.roguebtn,
+.warlockbtn {
+  font-family: 'Ell', sans-serif; /* Use 'Ell' font for buttons, and then fallback to sans-serif if 'Ell' is unavailable */
+  /* ... (rest of your button styles) */
 }
